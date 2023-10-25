@@ -2,7 +2,10 @@ extends "res://Scripts/player_vars.gd"
 #CODE THAT PARSES USER INPUT
 #just organized like this for organization's sake
 # Onready
-@onready var camera = $view
+
+
+
+	
 func _input(event):
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		InputMouse(event)
@@ -20,8 +23,8 @@ func InputMouse(event):
 	xlook = clamp(xlook, ply_maxlookangle_down, ply_maxlookangle_up)
 	
 func ViewAngles(delta):
-	$view.rotation_degrees.x = xlook
-	$view.rotation_degrees.y = ylook
+	camera.rotation_degrees.x = xlook
+	camera.rotation_degrees.y = ylook
 	
 func InputKeys():
 	sidemove += int(ply_sidespeed) * (int(Input.get_action_strength("move_left") * 50))
@@ -48,11 +51,6 @@ func InputKeys():
 		
 	#print(forwardmove)
 	
-	
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

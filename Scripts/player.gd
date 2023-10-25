@@ -1,6 +1,13 @@
-extends "res://Scripts/player_input.gd"
+extends "res://Scripts/player_inputs.gd"
 
 
+func _ready():
+	camera = $TwistPivot #CHANGE WHEN YOU WANT TO MESS WITH CAMERA
+	print("AMONGUS")
+	print(camera)
+	
+	if(camera == null):
+		print("BRUH")
 	
 
 # warning-ignore:unused_argument
